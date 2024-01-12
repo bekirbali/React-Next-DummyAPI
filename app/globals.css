@@ -10,9 +10,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 250, 215, 155;
+    --background-start-rgb: 50, 10, 10;
+    --background-end-rgb: 40, 10, 70;
   }
 }
 
@@ -21,7 +21,47 @@ body {
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      rgb(var(--background-start-rgb))
     )
     rgb(var(--background-start-rgb));
+  background-repeat: no-repeat;
+}
+
+.user-props p {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.all-titles {
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+.delete p {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-top: 0.5rem;
+}
+
+.add-button {
+  color: #090909;
+  padding: 0.2rem 0.7rem;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 1px 1px 6px #c5c5c5, -1px -1px 6px #ffffff;
+}
+
+.add-button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
