@@ -7,10 +7,10 @@ export default function Home() {
     <>
       <ToastContainer />
       <div className="flex items-center justify-center bg-yellow-500 h-[120px] text-[#e7ebe2]">
-        <h1 className="text-3xl font-bold">Users and Posts</h1>
+        <h1 className="text-3xl font-bold cursor-default">Users and Posts</h1>
       </div>
       <div>
-        <div className="p-2">
+        <div>
           <Users />
         </div>
         <div className="border-2">
