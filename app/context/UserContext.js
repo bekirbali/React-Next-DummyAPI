@@ -8,7 +8,7 @@ import { toastSuccessNotify } from "../utils/Toastify";
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [totalUserCount, setTotalUserCount] = useState(0);
   const [page, setPage] = useState(0);
@@ -25,11 +25,11 @@ const UserContextProvider = ({ children }) => {
   const getUserData = async () => {
     const { data } = await axios({
       method: "get",
-      url: `${baseURL}?page=${page}&limit=10`,
+      url: `${baseURL}?page=${page}&limit=25`,
       headers: { "app-id": "659eae0becacd5103832dd63" },
     });
     setUsers(data);
-    setLoading(false);
+    setIsLoading(false);
     setTotalUserCount(data.total);
   };
 
