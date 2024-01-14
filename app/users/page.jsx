@@ -32,6 +32,7 @@ const Users = () => {
 
   const [addModal, setAddModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
+  const [noResult, setNoResult] = useState("");
   const [theUser, setTheUser] = useState({
     firstName: "",
     lastName: "",
@@ -74,12 +75,11 @@ const Users = () => {
     const filteredSearch = users.data.filter((user) =>
       user.firstName.toLowerCase().includes(searchText.toLowerCase())
     );
+    if (!filteredSearch.length) {
+      setNoResult("No Match");
+      return;
+    }
     setSearchResults(filteredSearch);
-    console.log(
-      users.data.filter((user) =>
-        user.firstName.toLowerCase().includes(searchText.toLowerCase())
-      )
-    );
   };
 
   useEffect(() => {
@@ -92,6 +92,20 @@ const Users = () => {
       {/* Loading Screen */}
       {isLoading ? (
         <p>Loading...</p>
+      ) : noResult ? (
+        <div className="flex gap-4">
+          <p>{noResult}</p>
+          <button
+            onClick={() => {
+              setSearchResults([]);
+              setSearchText("");
+              setNoResult("");
+            }}
+            className="border rounded-md px-2 bg-[#e0e0e0] text-[#201e1e]"
+          >
+            Clear Filter
+          </button>
+        </div>
       ) : searchResults.length ? (
         <>
           {addModal && (
@@ -127,6 +141,7 @@ const Users = () => {
                 onClick={() => {
                   setSearchResults([]);
                   setSearchText("");
+                  setNoResult("");
                 }}
                 className="border rounded-md px-2"
               >
