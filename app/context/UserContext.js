@@ -12,6 +12,7 @@ const UserContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [totalUserCount, setTotalUserCount] = useState(0);
   const [page, setPage] = useState(0);
+  const [id, setId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,12 +21,12 @@ const UserContextProvider = ({ children }) => {
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  const baseURL = `https://dummyapi.io/data/v1/user`;
+  const baseURL = `https://dummyapi.io/data/v1/`;
 
   const getUserData = async () => {
     const { data } = await axios({
       method: "get",
-      url: `${baseURL}?page=${page}&limit=25`,
+      url: `${baseURL}user?page=${page}&limit=25`,
       headers: { "app-id": "659eae0becacd5103832dd63" },
     });
     setUsers(data);
@@ -36,7 +37,7 @@ const UserContextProvider = ({ children }) => {
   const addUser = async () => {
     try {
       await axios.post(
-        `${baseURL}/create`,
+        `${baseURL}user/create`,
         {
           firstName: firstName,
           lastName: lastName,
@@ -55,7 +56,7 @@ const UserContextProvider = ({ children }) => {
   const updateUser = async (user) => {
     try {
       await axios.put(
-        `${baseURL}/${user.id}`,
+        `${baseURL}user/${user.id}`,
         {
           firstName: user.firstName,
           lastName: user.lastName,
@@ -75,7 +76,7 @@ const UserContextProvider = ({ children }) => {
     try {
       await axios({
         method: "delete",
-        url: `${baseURL}/${user.id}`,
+        url: `${baseURL}user/${user.id}`,
         headers: { "app-id": "659eae0becacd5103832dd63" },
       });
       getUserData();
@@ -94,6 +95,8 @@ const UserContextProvider = ({ children }) => {
     isLoading,
     page,
     setPage,
+    id,
+    setId,
     firstName,
     setFirstName,
     lastName,

@@ -51,7 +51,7 @@ const Users = () => {
   };
 
   const nextPage = () => {
-    if (page === Math.floor(totalUserCount / 10)) {
+    if (page === Math.floor(totalUserCount / 25)) {
       toastWarnNotify("This is the last page!");
       return;
     }
@@ -266,7 +266,7 @@ const Users = () => {
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
                 />
-                <button onClick={() => console.log("object")}>
+                <button>
                   <PiMagnifyingGlass className="absolute right-2 top-3 text-black" />
                 </button>
               </form>

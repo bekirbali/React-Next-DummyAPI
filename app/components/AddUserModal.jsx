@@ -28,12 +28,21 @@ const AddUserModal = ({ setAddModal }) => {
     setTitle("");
   };
 
+  const closeModal = () => {
+    setAddModal(false);
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPicture("");
+    setTitle("");
+  };
+
   return (
     <div className="container">
       <form onSubmit={submitHandler} className="form">
         <div className="form_front relative">
           <button
-            onClick={() => setAddModal(false)}
+            onClick={closeModal}
             className="modal-close absolute z-50 top-2 right-2 text-[#ffe23d] hover:text-white"
           >
             <IoClose size={32} />
@@ -58,7 +67,7 @@ const AddUserModal = ({ setAddModal }) => {
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="input"
+            className="input !normal-case"
             placeholder="Email"
             value={email}
             required

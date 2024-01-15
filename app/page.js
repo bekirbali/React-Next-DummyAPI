@@ -13,7 +13,7 @@ export default function Home() {
         <div>
           <Users />
         </div>
-        <div className="border-2">
+        <div>
           <Post />
         </div>
       </div>
