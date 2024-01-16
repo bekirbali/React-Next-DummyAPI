@@ -23,18 +23,14 @@ const UsersDataList = ({
   theUser,
   setTheUser,
   idUser,
-  setIdUser,
   updateHandler,
   getUserByIdHandler,
   searchHandler,
   searchText,
   setSearchText,
   deleteUser,
-  page,
-  setPage,
   nextPage,
   previousPage,
-  getUserData,
 }) => {
   const { users } = useContext(UserContext);
 

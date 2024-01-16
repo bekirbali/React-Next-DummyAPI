@@ -9,22 +9,10 @@ const AddPostModal = ({ setAddModal }) => {
     e.preventDefault();
     addPost();
     setAddModal(false);
-    // setThePost({
-    //   text: "",
-    //   tags: [],
-    //   image: "",
-    //   id: "",
-    // })
   };
 
   const closeModal = () => {
     setAddModal(false);
-    // setThePost({
-    //   text: "",
-    //   tags: [],
-    //   image: "",
-    //   id: "",
-    // })
   };
 
   return (
