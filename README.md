@@ -1,29 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DummyAPI Task
 
-## Getting Started
+Bu proje, [DummyAPI](https://dummyapi.io/) kullanılarak elde edilen kullanıcı ve gönderi verileriyle CRUD işlemlerini gerçekleştiren bir React uygulamasıdır.
 
-First, run the development server:
+## Başlangıç
+
+Proje dosyalarını bilgisayarınıza klonlayın:
+
+```bash
+git clone https://github.com/bekirbali/React-Next-DummyAPI.git
+```
+
+```bash
+cd React-Next-DummyAPI
+```
+
+Gerekli bağımlılıkları yükleyin:
+
+```bash
+npm install
+```
+
+Proje başlatın:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Uygulama, http://localhost:3000 adresinde çalışacaktır.
 
-## Learn More
+## Proje Özellikleri
 
-To learn more about this project, take a look at the following text:
+DummyAPI' den gelen veriler ile CRUD işlemleri yapılabilir.
+Projenin düzgün çalışabilmesi için proje dizinine .env.local dosyası açılıp alttaki kod yazılmalıdır
 
--
+# DummyAPI'ye erişim sağlamak için kullanılan app-id
 
-## Deploy on Vercel
+NEXT_PUBLIC_APP_ID=659eae0becacd5103832dd63
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# DummyAPI Task
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is a React application that performs CRUD operations with user and post data obtained using [DummyAPI](https://dummyapi.io/).
+
+## Getting Started
+
+Clone the project files to your computer:
+
+```bash
+git clone https://github.com/bekirbali/React-Next-DummyAPI.git
+```
+
+```bash
+cd React-Next-DummyAPI
+```
+
+Install the required dependencies:
+
+```bash
+npm install
+```
+
+Start the project:
+
+```bash
+npm run dev
+```
+
+The application will run at http://localhost:3000.
+
+## Project Features
+
+CRUD operations can be performed with data obtained from DummyAPI.
+
+To enable the project to work properly, create a .env.local file in the project directory and add the following code:
+
+# app-id used to access DummyAPI
+
+NEXT_PUBLIC_APP_ID=659eae0becacd5103832dd63
+
+Please feel free to fork this repository and make pull requests.
