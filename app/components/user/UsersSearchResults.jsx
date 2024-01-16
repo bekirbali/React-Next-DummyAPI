@@ -1,11 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-  BsFillPencilFill,
-  BsFillTrash3Fill,
-} from "react-icons/bs";
+import { BsFillPencilFill, BsFillTrash3Fill } from "react-icons/bs";
 import { MdInfoOutline } from "react-icons/md";
 import { PiMagnifyingGlass } from "react-icons/pi";
 import AddUserModal from "./AddUserModal";
@@ -22,7 +17,6 @@ const UsersSearchResults = ({
   theUser,
   setTheUser,
   idUser,
-  setIdUser,
   searchResults,
   setSearchResults,
   updateHandler,

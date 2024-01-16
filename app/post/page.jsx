@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { PostContext } from "../context/PostContext";
-import Image from "next/image";
 import PostCard from "../components/post/PostCard";
-import Link from "next/link";
 import UpdatePostModal from "../components/post/UpdatePostModal";
 import { PiMagnifyingGlass } from "react-icons/pi";
 import { useRouter } from "next/navigation";
