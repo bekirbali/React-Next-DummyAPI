@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { IoClose } from "react-icons/io5";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 const AddUserModal = ({ setAddModal }) => {
   const {
@@ -41,12 +41,12 @@ const AddUserModal = ({ setAddModal }) => {
     <div className="container">
       <form onSubmit={submitHandler} className="form">
         <div className="form_front relative">
-          <button
+          <span
             onClick={closeModal}
-            className="modal-close absolute z-50 top-2 right-2 text-[#ffe23d] hover:text-white"
+            className="modal-close hover:cursor-pointer absolute z-50 top-2 right-2 text-[#ffe23d] hover:text-white"
           >
             <IoClose size={32} />
-          </button>
+          </span>
           <div className="form_details">Create User</div>
           <input
             onChange={(e) => setFirstName(e.target.value)}

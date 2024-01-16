@@ -10,9 +10,9 @@ export const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
+  const [idUser, setIdUser] = useState("");
   const [totalUserCount, setTotalUserCount] = useState(0);
   const [page, setPage] = useState(0);
-  const [id, setId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,6 +32,16 @@ const UserContextProvider = ({ children }) => {
     setUsers(data);
     setIsLoading(false);
     setTotalUserCount(data.total);
+  };
+
+  const getUserById = async (user) => {
+    const { data } = await axios({
+      method: "get",
+      url: `${baseURL}user/${user.id}`,
+      headers: { "app-id": "659eae0becacd5103832dd63" },
+    });
+    setIdUser(data);
+    console.log(idUser);
   };
 
   const addUser = async () => {
@@ -95,8 +105,6 @@ const UserContextProvider = ({ children }) => {
     isLoading,
     page,
     setPage,
-    id,
-    setId,
     firstName,
     setFirstName,
     lastName,
@@ -113,6 +121,9 @@ const UserContextProvider = ({ children }) => {
     setSearchText,
     searchResults,
     setSearchResults,
+    idUser,
+    setIdUser,
+    getUserById,
   };
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
 };
