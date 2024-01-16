@@ -29,7 +29,7 @@ const PostContextProvider = ({ children }) => {
     const { data } = await axios({
       method: "get",
       url: `${baseURL}post?page=${page}&limit=10`,
-      headers: { "app-id": "659eae0becacd5103832dd63" },
+      headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
     });
     setPosts(data);
     setIsLoading(false);
@@ -40,7 +40,7 @@ const PostContextProvider = ({ children }) => {
     const { data } = await axios({
       method: "get",
       url: `${baseURL}user/${post.owner.id}/post`,
-      headers: { "app-id": "659eae0becacd5103832dd63" },
+      headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
     });
     setPostsByUser(data);
   };
@@ -49,7 +49,7 @@ const PostContextProvider = ({ children }) => {
     const { data } = await axios({
       method: "get",
       url: `${baseURL}tag/${tag}/post`,
-      headers: { "app-id": "659eae0becacd5103832dd63" },
+      headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
     });
     setPostsByTag(data);
   };
@@ -64,7 +64,7 @@ const PostContextProvider = ({ children }) => {
           tags: thePost.tags,
           owner: "60d0fe4f5311236168a109d5",
         },
-        { headers: { "app-id": "659eae0becacd5103832dd63" } }
+        { headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID } }
       );
       toastSuccessNotify(`post updated succesfully!`);
       getPostData();
@@ -82,7 +82,7 @@ const PostContextProvider = ({ children }) => {
           image: post.image,
           tags: post.tags,
         },
-        { headers: { "app-id": "659eae0becacd5103832dd63" } }
+        { headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID } }
       );
       toastSuccessNotify(`post updated succesfully!`);
       getPostData();
@@ -96,7 +96,7 @@ const PostContextProvider = ({ children }) => {
       await axios({
         method: "delete",
         url: `${baseURL}post/${post.id}`,
-        headers: { "app-id": "659eae0becacd5103832dd63" },
+        headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
       });
       getPostData();
       toastSuccessNotify(`post deleted succesfully!`);

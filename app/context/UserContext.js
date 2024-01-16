@@ -27,7 +27,7 @@ const UserContextProvider = ({ children }) => {
     const { data } = await axios({
       method: "get",
       url: `${baseURL}user?page=${page}&limit=25`,
-      headers: { "app-id": "659eae0becacd5103832dd63" },
+      headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
     });
     setUsers(data);
     setIsLoading(false);
@@ -38,7 +38,7 @@ const UserContextProvider = ({ children }) => {
     const { data } = await axios({
       method: "get",
       url: `${baseURL}user/${user.id}`,
-      headers: { "app-id": "659eae0becacd5103832dd63" },
+      headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
     });
     setIdUser(data);
     console.log(idUser);
@@ -55,7 +55,7 @@ const UserContextProvider = ({ children }) => {
           title: title,
           picture: picture,
         },
-        { headers: { "app-id": "659eae0becacd5103832dd63" } }
+        { headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID } }
       );
       toastSuccessNotify(`${firstName} created succesfully!`);
     } catch (error) {
@@ -73,7 +73,7 @@ const UserContextProvider = ({ children }) => {
           title: user.title,
           picture: user.picture,
         },
-        { headers: { "app-id": "659eae0becacd5103832dd63" } }
+        { headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID } }
       );
       toastSuccessNotify(`${user.firstName} updated succesfully!`);
       getUserData();
@@ -87,7 +87,7 @@ const UserContextProvider = ({ children }) => {
       await axios({
         method: "delete",
         url: `${baseURL}user/${user.id}`,
-        headers: { "app-id": "659eae0becacd5103832dd63" },
+        headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
       });
       getUserData();
       toastSuccessNotify(`${user.firstName} deleted succesfully!`);
