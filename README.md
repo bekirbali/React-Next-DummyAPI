@@ -1,5 +1,8 @@
 # DummyAPI Task
 
+![DummyAPITask-GoogleChrome2024-01-1623-37-34-ezgif com-video-to-gif-converter](https://github.com/bekirbali/React-Next-DummyAPI/assets/95312891/85f95b0d-d1f2-4dd5-8aa4-9d1334c15ece)
+
+
 Bu proje, [DummyAPI](https://dummyapi.io/) kullanılarak elde edilen kullanıcı ve gönderi verileriyle CRUD işlemlerini gerçekleştiren bir React uygulamasıdır.
 
 ## Başlangıç
