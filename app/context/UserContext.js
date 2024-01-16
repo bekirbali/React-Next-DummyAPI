@@ -41,7 +41,6 @@ const UserContextProvider = ({ children }) => {
       headers: { "app-id": process.env.NEXT_PUBLIC_APP_ID },
     });
     setIdUser(data);
-    console.log(idUser);
   };
 
   const addUser = async () => {

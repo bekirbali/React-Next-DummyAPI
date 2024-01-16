@@ -31,7 +31,6 @@ const PostCard = ({ post }) => {
 
   const updateHandler = (post) => {
     const { text, tags, image, id } = post;
-    console.log(post);
     setThePost({
       text: text,
       tags: tags,
