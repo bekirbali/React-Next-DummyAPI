@@ -80,7 +80,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #292929c9;
+  background-color: #292929;
 }
 
 .form {
@@ -201,4 +201,17 @@ body {
 
 .search-input::placeholder {
   text-transform: none;
+}
+
+.id-user-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: left;
+}
+.id-user-modal .container-id {
+  display: flex;
+  flex-direction: column;
 }

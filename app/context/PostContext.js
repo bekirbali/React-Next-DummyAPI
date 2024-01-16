@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import React, { createContext, useState } from "react";
+import { toastErrorNotify, toastSuccessNotify } from "../utils/Toastify";
 
 export const PostContext = createContext();
 
@@ -9,8 +10,18 @@ const PostContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [postsByUser, setPostsByUser] = useState([]);
+  const [postsByTag, setPostsByTag] = useState([]);
   const [totalPostCount, setTotalPostCount] = useState(0);
   const [page, setPage] = useState(0);
+  const [tagText, setTagText] = useState("");
+  const [updateModal, setUpdateModal] = useState(false);
+  const [addModal, setAddModal] = useState(false);
+  const [thePost, setThePost] = useState({
+    text: "",
+    tags: [],
+    image: "",
+    id: "",
+  });
 
   const baseURL = "https://dummyapi.io/data/v1/";
 
@@ -23,7 +34,6 @@ const PostContextProvider = ({ children }) => {
     setPosts(data);
     setIsLoading(false);
     setTotalPostCount(data.total);
-    console.log(data);
   };
 
   const getPostByUser = async (post) => {
@@ -33,17 +43,66 @@ const PostContextProvider = ({ children }) => {
       headers: { "app-id": "659eae0becacd5103832dd63" },
     });
     setPostsByUser(data);
-    console.log(postsByUser);
   };
 
-  const getPostByTag = async (post) => {
+  const getPostByTag = async (tag) => {
     const { data } = await axios({
       method: "get",
-      url: `${baseURL}user/${user.owner.id}/post`,
+      url: `${baseURL}tag/${tag}/post`,
       headers: { "app-id": "659eae0becacd5103832dd63" },
     });
-    setPostsByUser(data);
-    console.log(postsByUser);
+    setPostsByTag(data);
+  };
+
+  const addPost = async () => {
+    try {
+      await axios.post(
+        `${baseURL}post/create`,
+        {
+          text: thePost.text,
+          image: thePost.image,
+          tags: thePost.tags,
+          owner: "60d0fe4f5311236168a109d5",
+        },
+        { headers: { "app-id": "659eae0becacd5103832dd63" } }
+      );
+      toastSuccessNotify(`post updated succesfully!`);
+      getPostData();
+    } catch (error) {
+      toastErrorNotify(`post could not created!!`);
+    }
+  };
+
+  const updatePost = async (post) => {
+    try {
+      await axios.put(
+        `${baseURL}post/${post.id}`,
+        {
+          text: post.text,
+          image: post.image,
+          tags: post.tags,
+        },
+        { headers: { "app-id": "659eae0becacd5103832dd63" } }
+      );
+      toastSuccessNotify(`post updated succesfully!`);
+      getPostData();
+    } catch (error) {
+      toastErrorNotify(`post could not updated!!`);
+    }
+  };
+
+  const deletePost = async (post) => {
+    try {
+      await axios({
+        method: "delete",
+        url: `${baseURL}post/${post.id}`,
+        headers: { "app-id": "659eae0becacd5103832dd63" },
+      });
+      getPostData();
+      toastSuccessNotify(`post deleted succesfully!`);
+    } catch (error) {
+      toastErrorNotify(`post could not deleted!!`);
+    }
   };
 
   const values = {
@@ -56,6 +115,20 @@ const PostContextProvider = ({ children }) => {
     setTotalPostCount,
     getPostByUser,
     postsByUser,
+    getPostByTag,
+    postsByTag,
+    setPostsByTag,
+    tagText,
+    setTagText,
+    deletePost,
+    updateModal,
+    setUpdateModal,
+    thePost,
+    setThePost,
+    updatePost,
+    addModal,
+    setAddModal,
+    addPost,
   };
   return <PostContext.Provider value={values}>{children}</PostContext.Provider>;
 };
