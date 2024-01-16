@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import { toastWarnNotify } from "../utils/Toastify";
 import UsersSearchResults from "../components/user/UsersSearchResults";
@@ -83,6 +83,11 @@ const Users = () => {
     }
     setSearchResults(filteredSearch);
   };
+
+  useEffect(() => {
+    getUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
 
   return (
     <>
