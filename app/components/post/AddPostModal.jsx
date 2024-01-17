@@ -56,7 +56,7 @@ const AddPostModal = ({ setAddModal }) => {
             }
             type="text"
             className="input !normal-case"
-            placeholder="Tags"
+            placeholder="Least 2 tags with comma"
             required
           />
           <button className="btn">Create</button>
