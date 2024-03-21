@@ -36,10 +36,6 @@ npm run dev
 DummyAPI' den gelen veriler ile CRUD işlemleri yapılabilir.
 Projenin düzgün çalışabilmesi için proje dizinine .env.local dosyası açılıp alttaki kod yazılmalıdır
 
-# DummyAPI'ye erişim sağlamak için kullanılan app-id
-
-NEXT_PUBLIC_APP_ID=659eae0becacd5103832dd63
-
 # DummyAPI Task
 
 This project is a React application that performs CRUD operations with user and post data obtained using [DummyAPI](https://dummyapi.io/).
@@ -76,8 +72,5 @@ CRUD operations can be performed with data obtained from DummyAPI.
 
 To enable the project to work properly, create a .env.local file in the project directory and add the following code:
 
-# app-id used to access DummyAPI
-
-NEXT_PUBLIC_APP_ID=659eae0becacd5103832dd63
 
 Please feel free to fork this repository and make pull requests.
